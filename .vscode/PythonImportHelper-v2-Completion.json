@@ -1,0 +1,123 @@
+[
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Skype",
+        "importPath": "skpy",
+        "description": "skpy",
+        "isExtraImport": true,
+        "detail": "skpy",
+        "documentation": {}
+    },
+    {
+        "label": "Skype",
+        "importPath": "skpy",
+        "description": "skpy",
+        "isExtraImport": true,
+        "detail": "skpy",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "kind": 2,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "def login():\n    username = request.json.get('username')\n    password = request.json.get('password')\n    global skype_client\n    try:\n        skype_client = Skype(username, password,\"./token.txt\")  # Authenticate with Skype\n        token = skype_client.conn.tokens  # Retrieve the authentication token\n        return jsonify(token), 200\n    except Exception as e:\n        return jsonify({'status': 'error', 'message': str(e)}), 400",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "send_message",
+        "kind": 2,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "def send_message():\n    username = request.json.get('username')\n    password = request.json.get('password')\n    chatId = request.json.get('chatId')\n    message = request.json.get('message')\n    global skype_client\n    try:\n        skype_client = Skype(None, None,\"./token.txt\")  # Authenticate with Skype\n        token = skype_client.conn.tokens  # Retrieve the authentication token\n        contact_username = chatId",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "app = Flask(__name__)\nskype_client = None  # Initialize Skype client as None\n@app.route('/login', methods=['POST'])\ndef login():\n    username = request.json.get('username')\n    password = request.json.get('password')\n    global skype_client\n    try:\n        skype_client = Skype(username, password,\"./token.txt\")  # Authenticate with Skype\n        token = skype_client.conn.tokens  # Retrieve the authentication token",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "skype_client",
+        "kind": 5,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "skype_client = None  # Initialize Skype client as None\n@app.route('/login', methods=['POST'])\ndef login():\n    username = request.json.get('username')\n    password = request.json.get('password')\n    global skype_client\n    try:\n        skype_client = Skype(username, password,\"./token.txt\")  # Authenticate with Skype\n        token = skype_client.conn.tokens  # Retrieve the authentication token\n        return jsonify(token), 200",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "username",
+        "kind": 5,
+        "importPath": "your_script",
+        "description": "your_script",
+        "peekOfCode": "username = sys.argv[1]\npassword = sys.argv[2]\nchatID = sys.argv[3]\nmessage = sys.argv[4]\ntry:\n    # Create a Skype connection\n    sk = Skype(username, password)\n    contact_username = chatID\n    contact = sk.contacts[contact_username]\n    # Send a text message",
+        "detail": "your_script",
+        "documentation": {}
+    },
+    {
+        "label": "password",
+        "kind": 5,
+        "importPath": "your_script",
+        "description": "your_script",
+        "peekOfCode": "password = sys.argv[2]\nchatID = sys.argv[3]\nmessage = sys.argv[4]\ntry:\n    # Create a Skype connection\n    sk = Skype(username, password)\n    contact_username = chatID\n    contact = sk.contacts[contact_username]\n    # Send a text message\n    message_content = message",
+        "detail": "your_script",
+        "documentation": {}
+    },
+    {
+        "label": "chatID",
+        "kind": 5,
+        "importPath": "your_script",
+        "description": "your_script",
+        "peekOfCode": "chatID = sys.argv[3]\nmessage = sys.argv[4]\ntry:\n    # Create a Skype connection\n    sk = Skype(username, password)\n    contact_username = chatID\n    contact = sk.contacts[contact_username]\n    # Send a text message\n    message_content = message\n    contact.chat.sendMsg(message_content)",
+        "detail": "your_script",
+        "documentation": {}
+    },
+    {
+        "label": "message",
+        "kind": 5,
+        "importPath": "your_script",
+        "description": "your_script",
+        "peekOfCode": "message = sys.argv[4]\ntry:\n    # Create a Skype connection\n    sk = Skype(username, password)\n    contact_username = chatID\n    contact = sk.contacts[contact_username]\n    # Send a text message\n    message_content = message\n    contact.chat.sendMsg(message_content)\n    print(\"Message sent successfully.\")",
+        "detail": "your_script",
+        "documentation": {}
+    }
+]
